@@ -4,9 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.AudioActivity"
-    android:background="@color/teal_200"
-    android:padding="15dp">
+    android:background="#f1f0f0"
+    android:padding="15dp"
+    tools:context=".view.AudioActivity">
+
+    <ImageView
+        android:id="@+id/imageV"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/logovoice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textTitle"
@@ -15,51 +24,86 @@
         android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Gravação de audio"
+        android:text="Gravar de audio"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/imageV" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnGravar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/purple_700"
         android:src="@drawable/baseline_mic_none_24"
         android:text="Gravar"
-        android:layout_marginTop="35dp"
         android:textColor="@color/white"
-        android:background="@color/purple_700"
-        app:layout_constraintTop_toBottomOf="@+id/textTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textTitle" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Gravar"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGravar" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnParar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@color/design_default_color_error"
         android:src="@drawable/baseline_stop_circle_48"
         android:text="Pause"
-        android:layout_marginTop="35dp"
         android:textColor="@color/white"
-        android:background="@color/design_default_color_error"
-        app:layout_constraintTop_toBottomOf="@+id/btnGravar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGravar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Parar"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnParar" />
 
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/btnPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Player"
-        android:src="@drawable/baseline_play_circle_48"
         android:layout_marginTop="35dp"
-        android:textColor="@color/white"
         android:background="#7216E3"
-        app:layout_constraintTop_toBottomOf="@+id/btnParar"
+        android:src="@drawable/baseline_play_circle_48"
+        android:text="Player"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnParar" />
+
+    <TextView
+        android:id="@+id/myText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Play"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnPlayer" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
