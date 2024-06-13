@@ -24,7 +24,7 @@
         android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Gravar de audio"
+        android:text="Gravador de áudio"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="italic"
