@@ -2,21 +2,23 @@ package com.example.appmidia.view
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-
 import com.example.appmidia.databinding.ActivityAudioBinding
 import com.example.appmidia.viewmodel.AudioViewModel
+import java.io.IOException
 
 class AudioActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAudioBinding
     private val audioViewModel: AudioViewModel by viewModels()
 
     private lateinit var outputFilePath: String //// Caminho do arquivo de saída
+    private var mediaPlayer: MediaPlayer? = null
 
 
     // Solicitando permissão
@@ -48,7 +50,9 @@ class AudioActivity : AppCompatActivity() {
 
         gravar()
         parar()
+        player()
     }
+
 
 
 
@@ -84,5 +88,30 @@ class AudioActivity : AppCompatActivity() {
             Toast.makeText(this,"Parando",Toast.LENGTH_LONG).show()
             audioViewModel.stopRecording()
         }
+    }
+
+    private fun player() {
+
+        binding.btnPlayer.setOnClickListener {
+            mediaPlayer?.release()
+            mediaPlayer = MediaPlayer().apply {
+                try {
+                    setDataSource(outputFilePath)
+                    prepare()
+                    start()
+                    setOnCompletionListener {
+                        Toast.makeText(this@AudioActivity, "Reprodução concluída", Toast.LENGTH_SHORT).show()
+                    }
+                }catch (e: IOException){
+                    e.printStackTrace()
+                    Toast.makeText(this@AudioActivity, "ERRO AO REPRODUZIR AUDIO", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+    }
+    override fun onDestroy(){
+        super.onDestroy()
+        mediaPlayer?.release()
     }
 }
